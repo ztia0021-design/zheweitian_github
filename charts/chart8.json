@@ -1,0 +1,85 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "2020 Australian Capital Cities - Seasonal Average Temperature",
+    "subtitle": "September → December → March → June | Bars: monthly temp | Line: trend | Colored by climate type",
+    "fontSize": 16,
+    "subtitleFontSize": 11
+  },
+  "width": 600,
+  "height": 400,
+  "data": {
+    "values": [
+      {"city": "Sydney", "month": "Sep", "temp": 18.7, "climate": "Temperate / Subtropical"},
+      {"city": "Sydney", "month": "Dec", "temp": 23.5, "climate": "Temperate / Subtropical"},
+      {"city": "Sydney", "month": "Mar", "temp": 22.1, "climate": "Temperate / Subtropical"},
+      {"city": "Sydney", "month": "Jun", "temp": 16.0, "climate": "Temperate / Subtropical"},
+      {"city": "Melbourne", "month": "Sep", "temp": 15.5, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "month": "Dec", "temp": 20.9, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "month": "Mar", "temp": 19.8, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "month": "Jun", "temp": 13.2, "climate": "Cool Temperate"},
+      {"city": "Brisbane", "month": "Sep", "temp": 21.8, "climate": "Tropical / Subtropical"},
+      {"city": "Brisbane", "month": "Dec", "temp": 26.1, "climate": "Tropical / Subtropical"},
+      {"city": "Brisbane", "month": "Mar", "temp": 24.5, "climate": "Tropical / Subtropical"},
+      {"city": "Brisbane", "month": "Jun", "temp": 18.9, "climate": "Tropical / Subtropical"},
+      {"city": "Perth", "month": "Sep", "temp": 18.3, "climate": "Mediterranean"},
+      {"city": "Perth", "month": "Dec", "temp": 25.3, "climate": "Mediterranean"},
+      {"city": "Perth", "month": "Mar", "temp": 23.4, "climate": "Mediterranean"},
+      {"city": "Perth", "month": "Jun", "temp": 15.9, "climate": "Mediterranean"},
+      {"city": "Adelaide", "month": "Sep", "temp": 16.4, "climate": "Mediterranean"},
+      {"city": "Adelaide", "month": "Dec", "temp": 22.8, "climate": "Mediterranean"},
+      {"city": "Adelaide", "month": "Mar", "temp": 21.1, "climate": "Mediterranean"},
+      {"city": "Adelaide", "month": "Jun", "temp": 14.1, "climate": "Mediterranean"},
+      {"city": "Canberra", "month": "Sep", "temp": 12.3, "climate": "Cool Temperate"},
+      {"city": "Canberra", "month": "Dec", "temp": 19.2, "climate": "Cool Temperate"},
+      {"city": "Canberra", "month": "Mar", "temp": 17.5, "climate": "Cool Temperate"},
+      {"city": "Canberra", "month": "Jun", "temp": 9.0, "climate": "Cool Temperate"},
+      {"city": "Hobart", "month": "Sep", "temp": 12.7, "climate": "Cool Temperate"},
+      {"city": "Hobart", "month": "Dec", "temp": 17.5, "climate": "Cool Temperate"},
+      {"city": "Hobart", "month": "Mar", "temp": 16.8, "climate": "Cool Temperate"},
+      {"city": "Hobart", "month": "Jun", "temp": 10.5, "climate": "Cool Temperate"},
+      {"city": "Darwin", "month": "Sep", "temp": 28.6, "climate": "Tropical Monsoon"},
+      {"city": "Darwin", "month": "Dec", "temp": 29.8, "climate": "Tropical Monsoon"},
+      {"city": "Darwin", "month": "Mar", "temp": 29.1, "climate": "Tropical Monsoon"},
+      {"city": "Darwin", "month": "Jun", "temp": 25.3, "climate": "Tropical Monsoon"}
+    ]
+  },
+  "facet": {
+    "column": {"field": "city", "type": "nominal", "title": null, "sort": ["Darwin", "Brisbane", "Sydney", "Perth", "Adelaide", "Melbourne", "Canberra", "Hobart"]}
+  },
+  "spec": {
+    "layer": [
+      {
+        "mark": {"type": "bar", "opacity": 0.7, "size": 40},
+        "encoding": {
+          "x": {"field": "month", "type": "ordinal", "title": "Month", "sort": ["Sep", "Dec", "Mar", "Jun"]},
+          "y": {"field": "temp", "type": "quantitative", "title": "Average Temperature (°C)", "scale": {"domain": [5, 32]}},
+          "color": {"field": "climate", "type": "nominal", "title": "Climate Type", "scale": {"scheme": "category10"}},
+          "tooltip": [
+            {"field": "city", "title": "City"},
+            {"field": "month", "title": "Month"},
+            {"field": "temp", "title": "Temp (°C)", "format": ".1f"},
+            {"field": "climate", "title": "Climate"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "line", "color": "black", "strokeWidth": 2, "point": {"filled": true, "size": 50}},
+        "encoding": {
+          "x": {"field": "month", "type": "ordinal", "sort": ["Sep", "Dec", "Mar", "Jun"]},
+          "y": {"field": "temp", "type": "quantitative"},
+          "tooltip": [
+            {"field": "city", "title": "City"},
+            {"field": "month", "title": "Month"},
+            {"field": "temp", "title": "Temp (°C)", "format": ".1f"}
+          ]
+        }
+      }
+    ]
+  },
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": true},
+    "header": {"titleFontSize": 12, "labelFontSize": 10, "labelAngle": -45}
+  }
+}

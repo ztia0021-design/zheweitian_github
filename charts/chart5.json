@@ -1,0 +1,94 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Population of Australian States and Territories",
+    "subtitle": "Colored by Climate Type | Area = Population Size",
+    "fontSize": 16,
+    "subtitleFontSize": 11
+  },
+  "width": 700,
+  "height": 500,
+  "data": {
+    "values": [
+      {"state": "New South Wales", "population": 8339300, "climate": "Temperate / Subtropical"},
+      {"state": "Victoria", "population": 6812500, "climate": "Cool Temperate"},
+      {"state": "Queensland", "population": 5459400, "climate": "Tropical / Subtropical"},
+      {"state": "Western Australia", "population": 2878600, "climate": "Mediterranean / Arid"},
+      {"state": "South Australia", "population": 1851700, "climate": "Mediterranean"},
+      {"state": "Tasmania", "population": 572800, "climate": "Cool Temperate"},
+      {"state": "Australian Capital Territory", "population": 466000, "climate": "Cool Temperate"},
+      {"state": "Northern Territory", "population": 252500, "climate": "Tropical Monsoon / Arid"}
+    ]
+  },
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 1.5
+  },
+  "encoding": {
+    "x": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "axis": null
+    },
+    "y": {
+      "field": "population",
+      "type": "quantitative",
+      "title": null,
+      "axis": null
+    },
+    "color": {
+      "field": "climate",
+      "type": "nominal",
+      "title": "Climate Type",
+      "scale": {
+        "domain": [
+          "Temperate / Subtropical",
+          "Cool Temperate",
+          "Tropical / Subtropical",
+          "Mediterranean / Arid",
+          "Mediterranean",
+          "Tropical Monsoon / Arid"
+        ],
+        "range": [
+          "#66c2a5",
+          "#3288bd",
+          "#fdae61",
+          "#d53e4f",
+          "#f46d43",
+          "#a6d96a"
+        ]
+      },
+      "legend": {
+        "orient": "bottom-right",
+        "titleFontSize": 11,
+        "labelFontSize": 10
+      }
+    },
+    "size": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Population",
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State/Territory"},
+      {"field": "population", "type": "quantitative", "title": "Population", "format": ",.0f"},
+      {"field": "climate", "type": "nominal", "title": "Climate"}
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    },
+    "axis": {
+      "domain": false,
+      "ticks": false
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    }
+  }
+}
