@@ -1,0 +1,51 @@
+LGA_NAME,vegetation_density,vegetation_level
+Sydney,22,Low
+Melbourne,18,Low
+Brisbane,56,Medium
+Gold Coast,62,Medium
+Cairns,88,Very High
+Darwin,82,Very High
+Perth,35,Medium
+Adelaide,28,Low
+Hobart,76,High
+Canberra,45,Medium
+Alice Springs,5,Very Low
+Townsville,71,High
+Launceston,74,High
+Rockhampton,66,High
+Sunshine Coast,63,Medium
+Broome,67,High
+Kalgoorlie,9,Very Low
+Geelong,39,Medium
+Ballarat,51,Medium
+Bendigo,48,Medium
+Toowoomba,57,Medium
+Mackay,73,High
+Bundaberg,69,High
+Hervey Bay,64,Medium
+Gladstone,61,Medium
+Mount Isa,11,Very Low
+Katherine,79,Very High
+Albany,54,Medium
+Geraldton,43,Medium
+Bunbury,47,Medium
+Port Hedland,14,Low
+Whyalla,16,Low
+Wagga Wagga,42,Medium
+Dubbo,37,Medium
+Tamworth,46,Medium
+Orange,52,Medium
+Newcastle,41,Medium
+Wollongong,44,Medium
+Albury,49,Medium
+Devonport,72,High
+Burnie,75,High
+Mount Gambier,58,Medium
+Mildura,24,Low
+Shepparton,33,Medium
+Coffs Harbour,68,High
+Port Macquarie,66,High
+Lismore,81,Very High
+Bairnsdale,59,Medium
+Esperance,53,Medium
+Kununurra,84,Very High
