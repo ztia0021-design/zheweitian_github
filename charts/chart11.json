@@ -1,0 +1,207 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 900,
+  "height": 560,
+  "padding": 30,
+  "background": "#ece7e1",
+  "autosize": {
+  "type": "fit",
+  "contains": "padding"
+},
+
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {"id": "Climate Type", "parent": ""},
+
+        {"id": "Tropical Climate", "parent": "Climate Type"},
+        {"id": "Darwin", "parent": "Tropical Climate"},
+        {"id": "Cairns", "parent": "Tropical Climate"},
+        {"id": "Townsville", "parent": "Tropical Climate"},
+        {"id": "Broome", "parent": "Tropical Climate"},
+
+        {"id": "Arid Climate", "parent": "Climate Type"},
+        {"id": "Alice Springs", "parent": "Arid Climate"},
+        {"id": "Kalgoorlie", "parent": "Arid Climate"},
+        {"id": "Coober Pedy", "parent": "Arid Climate"},
+        {"id": "Broken Hill", "parent": "Arid Climate"},
+
+        {"id": "Temperate Climate", "parent": "Climate Type"},
+        {"id": "Sydney", "parent": "Temperate Climate"},
+        {"id": "Melbourne", "parent": "Temperate Climate"},
+        {"id": "Canberra", "parent": "Temperate Climate"},
+        {"id": "Hobart", "parent": "Temperate Climate"},
+
+        {"id": "Mediterranean Climate", "parent": "Climate Type"},
+        {"id": "Perth", "parent": "Mediterranean Climate"},
+        {"id": "Adelaide", "parent": "Mediterranean Climate"},
+
+        {"id": "Subtropical Climate", "parent": "Climate Type"},
+        {"id": "Brisbane", "parent": "Subtropical Climate"},
+        {"id": "Gold Coast", "parent": "Subtropical Climate"}
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "tree",
+          "method": "tidy",
+          "size": [
+            {"signal": "height - 60"},
+            {"signal": "width - 240"}
+          ],
+          "as": ["y", "x", "depth", "children"]
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "treelinks"
+        },
+        {
+          "type": "linkpath",
+          "orient": "horizontal",
+          "shape": "diagonal",
+          "sourceX": "source.x",
+          "sourceY": "source.y",
+          "targetX": "target.x",
+          "targetY": "target.y"
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Tropical Climate",
+        "Arid Climate",
+        "Temperate Climate",
+        "Mediterranean Climate",
+        "Subtropical Climate"
+      ],
+      "range": [
+        "#42b883",
+        "#e9783f",
+        "#8e7de8",
+        "#3f88c5",
+        "#f2b84b"
+      ]
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "path",
+      "from": {
+        "data": "links"
+      },
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "stroke": {
+            "value": "#d9d9d9"
+          },
+          "strokeWidth": {
+            "value": 1.5
+          },
+          "fill": {
+            "value": null
+          }
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {
+        "data": "tree"
+      },
+      "encode": {
+        "enter": {
+          "size": {
+            "signal": "datum.depth === 0 ? 70 : datum.children ? 180 : 90"
+          },
+          "fill": [
+            {
+              "test": "datum.depth === 0",
+              "value": "#dddddd"
+            },
+            {
+              "test": "datum.children",
+              "scale": "color",
+              "field": "id"
+            },
+            {
+              "scale": "color",
+              "field": "parent"
+            }
+          ],
+          "stroke": {
+            "value": "white"
+          },
+          "strokeWidth": {
+            "value": 1.5
+          }
+        },
+        "update": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "tree"
+      },
+      "encode": {
+        "enter": {
+          "text": {
+            "field": "id"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "signal": "datum.depth === 0 ? 13 : datum.children ? 14 : 13"
+          },
+          "fill": {
+            "value": "#333333"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "align": {
+            "signal": "datum.children ? 'right' : 'left'"
+          },
+          "dx": {
+            "signal": "datum.children ? -12 : 12"
+          }
+        },
+        "update": {
+          "x": {
+            "field": "x"
+          },
+          "y": {
+            "field": "y"
+          }
+        }
+      }
+    }
+  ]
+}

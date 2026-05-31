@@ -1,0 +1,139 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Average Temperature Heat Map of Major Australian Cities",
+    "subtitle": "Grouped by climate type | Seasonal average temperature (°C)",
+    "fontSize": 16,
+    "subtitleFontSize": 11
+  },
+
+  "data": {
+    "values": [
+      {"city": "Darwin", "season": "Spring", "temp": 28.6, "climate": "Tropical Monsoon"},
+      {"city": "Darwin", "season": "Summer", "temp": 29.8, "climate": "Tropical Monsoon"},
+      {"city": "Darwin", "season": "Autumn", "temp": 29.1, "climate": "Tropical Monsoon"},
+      {"city": "Darwin", "season": "Winter", "temp": 25.3, "climate": "Tropical Monsoon"},
+
+      {"city": "Brisbane", "season": "Spring", "temp": 21.8, "climate": "Tropical / Subtropical"},
+      {"city": "Brisbane", "season": "Summer", "temp": 26.1, "climate": "Tropical / Subtropical"},
+      {"city": "Brisbane", "season": "Autumn", "temp": 24.5, "climate": "Tropical / Subtropical"},
+      {"city": "Brisbane", "season": "Winter", "temp": 18.9, "climate": "Tropical / Subtropical"},
+
+      {"city": "Sydney", "season": "Spring", "temp": 18.7, "climate": "Temperate / Subtropical"},
+      {"city": "Sydney", "season": "Summer", "temp": 23.5, "climate": "Temperate / Subtropical"},
+      {"city": "Sydney", "season": "Autumn", "temp": 22.1, "climate": "Temperate / Subtropical"},
+      {"city": "Sydney", "season": "Winter", "temp": 16.0, "climate": "Temperate / Subtropical"},
+
+      {"city": "Perth", "season": "Spring", "temp": 18.3, "climate": "Mediterranean"},
+      {"city": "Perth", "season": "Summer", "temp": 25.3, "climate": "Mediterranean"},
+      {"city": "Perth", "season": "Autumn", "temp": 23.4, "climate": "Mediterranean"},
+      {"city": "Perth", "season": "Winter", "temp": 15.9, "climate": "Mediterranean"},
+
+      {"city": "Adelaide", "season": "Spring", "temp": 16.4, "climate": "Mediterranean"},
+      {"city": "Adelaide", "season": "Summer", "temp": 22.8, "climate": "Mediterranean"},
+      {"city": "Adelaide", "season": "Autumn", "temp": 21.1, "climate": "Mediterranean"},
+      {"city": "Adelaide", "season": "Winter", "temp": 14.1, "climate": "Mediterranean"},
+
+      {"city": "Melbourne", "season": "Spring", "temp": 15.5, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "season": "Summer", "temp": 20.9, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "season": "Autumn", "temp": 19.8, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "season": "Winter", "temp": 13.2, "climate": "Cool Temperate"},
+
+      {"city": "Canberra", "season": "Spring", "temp": 12.3, "climate": "Cool Temperate"},
+      {"city": "Canberra", "season": "Summer", "temp": 19.2, "climate": "Cool Temperate"},
+      {"city": "Canberra", "season": "Autumn", "temp": 17.5, "climate": "Cool Temperate"},
+      {"city": "Canberra", "season": "Winter", "temp": 9.0, "climate": "Cool Temperate"}
+    ]
+  },
+
+  "facet": {
+    "row": {
+      "field": "climate",
+      "type": "nominal",
+      "title": null,
+      "sort": [
+        "Tropical Monsoon",
+        "Tropical / Subtropical",
+        "Temperate / Subtropical",
+        "Mediterranean",
+        "Cool Temperate"
+      ],
+      
+      "header": {
+      "labelAngle": 0,
+      "labelFontSize": 13,
+      "labelFontWeight": "bold",
+      "labelColor": "#333",
+
+      "labelAlign": "left",
+      "labelBaseline": "middle",
+
+      "labelPadding": 10
+      }
+    }
+  },
+
+  "spec": {
+    "width": 600,
+    "height": 60,
+
+    "mark": {
+      "type": "rect",
+      "stroke": "white",
+      "strokeWidth": 2
+    },
+
+    "encoding": {
+      "x": {
+        "field": "season",
+        "type": "ordinal",
+        "title": null,
+        "sort": ["Spring", "Summer", "Autumn", "Winter"]
+      },
+
+      "y": {
+        "field": "city",
+        "type": "nominal",
+        "title": null
+      },
+
+      "color": {
+        "field": "temp",
+        "type": "quantitative",
+        "title": "Temperature (°C)",
+        "scale": {
+          "scheme": "redyellowblue",
+          "reverse": true
+        }
+      },
+
+      "tooltip": [
+        {"field": "city", "title": "City"},
+        {"field": "climate", "title": "Climate Type"},
+        {"field": "season", "title": "Season"},
+        {"field": "temp", "title": "Temperature (°C)", "format": ".1f"}
+      ]
+    }
+  },
+
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  },
+
+  "config": {
+    "headerRow": {
+    "labelAngle": 0,
+    "labelAlign": "left"
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    }
+  }
+}

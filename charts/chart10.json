@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 420,
+  "title": {
+    "text": "Population of Australia's Six Largest Cities",
+    "subtitle": "Bubble size = population | Colour = climate type",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "anchor": "start",
+    "color": "black"
+  },
+  "data": {
+    "values": [
+      {
+        "city": "Melbourne",
+        "population": 5245182,
+        "climate": "Temperate Oceanic"
+      },
+      {
+        "city": "Sydney",
+        "population": 5143256,
+        "climate": "Humid Subtropical"
+      },
+      {
+        "city": "Brisbane",
+        "population": 2693649,
+        "climate": "Humid Subtropical"
+      },
+      {
+        "city": "Perth",
+        "population": 2363562,
+        "climate": "Mediterranean"
+      },
+      {
+        "city": "Adelaide",
+        "population": 1449366,
+        "climate": "Mediterranean"
+      },
+      {
+        "city": "Gold Coast",
+        "population": 750997,
+        "climate": "Humid Subtropical"
+      }
+    ]
+  },
+  "mark": {
+    "type": "circle",
+    "opacity": 0.8,
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "city",
+      "type": "nominal",
+      "title": "City",
+      "sort": "-y"
+    },
+    "y": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Population"
+    },
+    "size": {
+      "field": "population",
+      "type": "quantitative",
+      "title": "Population",
+      "scale": {
+        "range": [600, 6000]
+      }
+    },
+    "color": {
+      "field": "climate",
+      "type": "nominal",
+      "title": "Climate Type",
+      "scale": {
+        "domain": [
+          "Temperate Oceanic",
+          "Humid Subtropical",
+          "Mediterranean"
+        ],
+        "range": [
+          "#4C78A8",
+          "#F58518",
+          "#54A24B"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "city",
+        "type": "nominal",
+        "title": "City"
+      },
+      {
+        "field": "population",
+        "type": "quantitative",
+        "title": "Population",
+        "format": ","
+      },
+      {
+        "field": "climate",
+        "type": "nominal",
+        "title": "Climate Type"
+      }
+    ]
+  },
+  "config": {
+    "background": "transparent",
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 13,
+      "labelColor": "black",
+      "titleColor": "black"
+    },
+    "legend": {
+      "titleFontSize": 12,
+      "labelFontSize": 11
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}

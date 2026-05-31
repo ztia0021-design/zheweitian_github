@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 850,
+  "height": 650,
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/ztia0021-design/zheweitian_github/main/LGA_2025_AUST_GDA94.json",
+    "format": {
+      "type": "topojson",
+      "feature": "LGA_2025_AUST_GDA94"
+    }
+  },
+
+  "projection": {
+    "type": "mercator",
+    "center": [134, -25],
+    "scale": 700
+  },
+
+  "transform": [
+    {
+      "lookup": "properties.LGA_NAME25",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/ztia0021-design/zheweitian_github/main/LGA_NAME%2Cvegetation_density%2Cvegetat.csv"
+        },
+        "key": "LGA_NAME",
+        "fields": ["vegetation_density", "vegetation_level"]
+      }
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d9d9d9",
+        "stroke": "white",
+        "strokeWidth": 0.15
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "isValid(datum.vegetation_density)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.15
+      },
+      "encoding": {
+        "color": {
+          "field": "vegetation_density",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "greens"
+          },
+          "legend": {
+            "title": "Vegetation Density"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.LGA_NAME25",
+            "type": "nominal",
+            "title": "LGA"
+          },
+          {
+            "field": "vegetation_density",
+            "type": "quantitative",
+            "title": "Vegetation Density"
+          },
+          {
+            "field": "vegetation_level",
+            "type": "nominal",
+            "title": "Level"
+          }
+        ]
+      }
+    }
+  ],
+
+  "title": "Vegetation Density by Australian LGA"
+}

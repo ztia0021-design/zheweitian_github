@@ -1,0 +1,68 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "2020 Annual Rainfall in Australian Capital Cities",
+    "subtitle": "Colored by climate type | Horizontal bar chart | Values in mm",
+    "fontSize": 16,
+    "subtitleFontSize": 11
+  },
+  "width": 700,
+  "height": 450,
+  "data": {
+    "values": [
+      {"city": "Darwin", "rainfall": 1740.2, "climate": "Tropical Monsoon"},
+      {"city": "Sydney", "rainfall": 1551.6, "climate": "Temperate / Subtropical"},
+      {"city": "Brisbane", "rainfall": 1088.0, "climate": "Tropical / Subtropical"},
+      {"city": "Canberra", "rainfall": 790.0, "climate": "Cool Temperate"},
+      {"city": "Melbourne", "rainfall": 786.8, "climate": "Cool Temperate"},
+      {"city": "Perth", "rainfall": 673.4, "climate": "Mediterranean"},
+      {"city": "Hobart", "rainfall": 656.2, "climate": "Cool Temperate"},
+      {"city": "Adelaide", "rainfall": 471.2, "climate": "Mediterranean"}
+    ]
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
+    },
+    "x": {
+      "field": "rainfall",
+      "type": "quantitative",
+      "title": "Annual Rainfall (mm)",
+      "axis": {"format": "d"}
+    },
+    
+    "color": {"field": "climate","type": "nominal","title": "Climate Type","scale": {"domain": [
+      "Tropical Monsoon",
+      "Temperate / Subtropical",
+      "Tropical / Subtropical",
+      "Cool Temperate",
+      "Mediterranean"
+    ],
+    "range": [
+      "#a6d96a",
+      "#66c2a5",
+      "#fdae61",
+      "#3288bd",
+      "#f46d43"
+    ]
+  },
+  "legend": {
+    "orient": "bottom",
+    "direction": "horizontal",
+    "anchor": "start",
+    "columns": 3,
+    "offset": 15
+  }
+},
+    
+    "tooltip": [
+      {"field": "city", "type": "nominal", "title": "City"},
+      {"field": "rainfall", "type": "quantitative", "title": "Rainfall (mm)", "format": ".1f"},
+      {"field": "climate", "type": "nominal", "title": "Climate Type"}
+    ]
+  }
+}

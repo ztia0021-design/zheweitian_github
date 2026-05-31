@@ -1,0 +1,80 @@
+
+{ "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+
+  "width": 700,
+  "height": 500,
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "data": {
+    "url": "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+
+  "transform": [
+    {
+      "lookup": "properties.STATE_NAME",
+
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/ztia0021-design/zheweitian_github/5e4af9f9542c0531f783df996ced528fae373f2d/state%2Cclimate_type%2Cclimate_code%2Care.csv"
+        },
+
+        "key": "state",
+        "fields": [
+          "climate_type",
+          "climate_code",
+          "area"
+        ]
+      }
+    }
+  ],
+
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+
+  "encoding": {
+
+    "color": {
+      "field": "climate_type",
+      "type": "nominal",
+      "title": "Climate Type"
+    },
+
+    "tooltip": [
+      {
+        "field": "properties.STATE_NAME",
+        "type": "nominal",
+        "title": "State"
+      },
+
+      {
+        "field": "climate_type",
+        "type": "nominal",
+        "title": "Climate Type"
+      },
+
+      {
+        "field": "climate_code",
+        "type": "nominal",
+        "title": "Climate Code"
+      },
+
+      {
+        "field": "area",
+        "type": "quantitative",
+        "title": "Area"
+      }
+    ]
+  },
+
+  "title": "Australian Climate Types by State"
+}

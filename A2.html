@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style1.css" type="text/css">
+    <title>How can the climate affect Australia?</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+     
+</head>
+<body>
+    
+
+   
+
+    
+    
+    <section class="hero">
+        <div class="overlay">
+            <h1>How can the climate affect Australia?</h1>
+        </div>
+    </section>
+
+
+
+    
+    <section class="content">
+        <h2>In this presentation, you will be shown the various climate types in different regions of Australia, as well as the factors that influence these climate types, such as topography. And how the climate types affect the population distribution and precipitation levels.</h2>
+        <p>
+        </p>
+        <section class="section-card">
+          <div class="section-header">
+            <p class="section-tag">1 · CLIMATE</p>
+            <h2>The climate type with the widest distribution area among all the states in Australia</h2>
+            <p>Once concentration is established, the story turns toward solutions...</p>
+          </div>
+
+          <div class="section-body">
+            <div class="text-box">
+              <p class="number">01</p>
+              <h2>The Australian territory encompasses various climate types, which results in uneven distribution of precipitation and temperature, and consequently leads to different densities of surface vegetation.</h2>
+              <p>Place the pointer on the chart to obtain more information.</p>
+            </div>
+
+            <div id="chart1"></div>
+            <script>
+                vegaEmbed("#chart1", "charts/chart1.json");
+            </script>
+          </div>
+        </section>
+
+        
+        
+        <section class="section-card">
+          <div class="section-header">
+            <p class="section-tag">2 · CLIMATE</p>
+            <h2>Vegetation Density in Different Regions of Australia</h2>
+            <p>Once concentration is established, the story turns toward solutions...</p>
+          </div>
+
+          <div class="section-body">
+            <div class="text-box">
+              <p class="number">02</p>
+              <h2>Climate types directly affect vegetation density. In tropical and temperate regions with sufficient rainfall and suitable temperatures, plants grow well and vegetation is dense. In contrast, vegetation is sparse in dry or cold regions because of limited water or low temperatures. Generally, the warmer and wetter the climate is, the higher the vegetation density will be. Conversely, colder and drier climates often result in lower vegetation density or even deserts.</h2>
+              <p>Place the pointer on the chart to obtain more information.</p>
+            </div>
+
+            <div id="chart2"></div>
+            <script>
+                vegaEmbed("#chart2", "charts/chart2.json");
+            </script>
+          </div>
+        </section>
+
+      <h2>Before we delve into the impact of climate types on different regions, let's take a look at the climate type each city belongs to.</h2>  
+      
+
+
+        <div class="chart-wrapper">
+        <div id="chart11"></div>
+        </div>
+
+        <script>
+          vegaEmbed("#chart11", "charts/chart11.json", {
+           actions: false
+               });
+        </script>
+        <section class="section-card">
+          <div class="section-header">
+            <p class="section-tag">1 · CLIMATE</p>
+            <h2>Annual precipitation in various cities of Australia in 2020</h2>
+            <p>Once concentration is established, the story turns toward solutions...</p>
+          </div>
+
+          <div class="section-body">
+            <div class="text-box">
+              <p class="number">03</p>
+              <h2>Different climate types in Australia have significant effects on annual rainfall. Tropical monsoon regions receive abundant rainfall with distinct wet seasons, while temperate and subtropical regions have moderate and relatively even precipitation. Mediterranean climates experience wet winters and dry summers, whereas inland desert and arid regions receive very little rainfall. In general, coastal and tropical areas tend to have higher annual precipitation.</h2>
+              <p>Place the pointer on the chart to obtain more information.</p>
+            </div>
+
+            <div id="chart7"></div>
+            <script>
+                vegaEmbed("#chart7", "charts/chart7.json");
+            </script>
+          </div>
+        </section>  
+        
+
+        <section class="section-card">
+          <div class="section-header">
+            <p class="section-tag">1 · CLIMATE</p>
+            <h2>Comparison of average seasonal temperatures in various cities of Australia</h2>
+            <p></p>
+          </div>
+
+          <div class="section-body">
+            <div class="text-box">
+              <p class="number">04</p>
+              <h2>Australia's climate types strongly influence annual temperature variation. Tropical regions have small temperature ranges, while temperate regions experience moderate seasonal changes. Desert and arid areas show the largest variations due to extreme heat and dryness. Mediterranean climates remain relatively stable with warm summers and mild winters.</h2>
+              <p>Place the pointer on the chart to obtain more information.</p>
+            </div>
+
+            <div id="chart8"></div>
+            <script>
+                vegaEmbed("#chart8", "charts/chart8.json");
+            </script>
+            
+          </div>
+        </section>
+
+      
+
+        <section class="section-card">
+          <div class="section-header">
+            <p class="section-tag">1 · CLIMATE</p>
+            <h2>Comparison of average seasonal temperatures in various cities of Australia.</h2>
+            <p>Once concentration is established, the story turns toward solutions...</p>
+          </div>
+
+          <div class="section-body">
+            <div class="text-box">
+              
+              
+            <div id="chart9"></div>
+            <script>
+                vegaEmbed("#chart9", "charts/chart9.json");
+            </script>
+            <div class="chart-divider"></div>
+            <div id="chart12"></div>
+            <script>
+                vegaEmbed("#chart12", "charts/chart12.json");
+            </script>
+            </div>
+          
+        </section>
+
+<h2>Finally, you will be presented with the current population distribution in Australia under the influence of different climate types.</h2>
+
+        <section class="section-card">
+  
+  
+          <div class="section-header">
+          <p class="section-tag">1 · CLIMATE</p>
+    <h2>Population Distribution in Different Regions of Australia</h2>
+    <p></p>
+  </div>
+  
+  <div class="section-body">
+    <div class="insight-box">
+        <p class="insight-tag">Chart layout</p>
+
+        <p class="insight-text">
+            Due to these factors as well as historical economic factors, the population distribution in Australia has remained relatively stable over the years, and the urbanization rate is relatively high. In the first chart, we present the population figures of various cities in 2020 and indicate in which climate zones these cities are located. </p>
+        <p class="insight-text">In the second graph, we set aside the concept of cities and directly examine the population distribution in each climate type zone.
+        </p>                                                      
+    </div>
+
+    
+
+    <div class="chart-group">
+      <div id="chart5"></div>
+      <script>
+        vegaEmbed("#chart5", "charts/chart5.json");
+      </script>
+      
+      <div class="chart-divider"></div>
+
+      <div id="chart6"></div>
+      <script>
+        vegaEmbed("#chart6", "charts/chart6.json");
+      </script>
+    </div>
+    
+    
+  </div>
+</section>
+
+  <section class="section-card">
+          <div class="section-header">
+            <p class="section-tag">1 · CLIMATE</p>
+            <h2>Comparison of average seasonal temperatures in various cities of Australia.</h2>
+            <p>Once concentration is established, the story turns toward solutions...</p>
+          </div>
+
+          <div class="section-body">
+            <div class="text-box">
+              
+              
+           
+            <div id="chart10"></div>
+            <script>
+                vegaEmbed("#chart10", "charts/chart10.json");
+            </script>
+            </div>
+          
+        </section>      
+        
+      
+        
+        
+
+        
+        
+        
+    </section>
+
+</body>    
+</html>

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": null,
+  "title": {
+    "text": "Population by Climate Zone in Australia",
+    "subtitle": "Same climate grouped together | Area = total population",
+    "fontSize": 16,
+    "subtitleFontSize": 11
+  },
+  "width": 400,
+  "height": 300,
+  "padding": 0,
+
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {"climate": "Australia", "parent": null},
+
+        {"climate": "Cool Temperate", "parent": "Australia", "states": "Victoria, Tasmania, ACT", "total_population": 7851300},
+        {"climate": "Temperate / Subtropical", "parent": "Australia", "states": "New South Wales", "total_population": 8339300},
+        {"climate": "Tropical / Subtropical", "parent": "Australia", "states": "Queensland", "total_population": 5459400},
+        {"climate": "Mediterranean", "parent": "Australia", "states": "South Australia", "total_population": 1851700},
+        {"climate": "Mediterranean / Arid", "parent": "Australia", "states": "Western Australia", "total_population": 2878600},
+        {"climate": "Tropical Monsoon / Arid", "parent": "Australia", "states": "Northern Territory", "total_population": 252500}
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "climate",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "total_population",
+          "sort": {"field": "total_population", "order": "descending"},
+          "round": true,
+          "method": "squarify",
+          "size": [{"signal": "width"}, {"signal": "height"}],
+          "padding": 2
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "ordinal",
+      "domain": [
+        "Cool Temperate",
+        "Temperate / Subtropical",
+        "Tropical / Subtropical",
+        "Mediterranean",
+        "Mediterranean / Arid",
+        "Tropical Monsoon / Arid"
+      ],
+      "range": [
+        "#3288bd",
+        "#66c2a5",
+        "#fdae61",
+        "#f46d43",
+        "#d53e4f",
+        "#a6d96a"
+      ]
+    }
+  ],
+
+  "legends": [
+    {
+      "fill": "color",
+      "title": "Climate Type",
+      "orient": "left",
+      "offset": 20
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "table",
+        "transform": [
+          {"type": "filter", "expr": "datum.depth > 0"}
+        ]
+      },
+      "encode": {
+        "enter": {
+          "stroke": {"value": "white"},
+          "strokeWidth": {"value": 1.5},
+          "tooltip": {
+            "signal": "{'Climate Type': datum.climate, 'States/Territories': datum.states, 'Total Population': format(datum.total_population, ',')}"
+          }
+        },
+        "update": {
+          "x": {"field": "x0"},
+          "y": {"field": "y0"},
+          "x2": {"field": "x1"},
+          "y2": {"field": "y1"},
+          "fill": {"scale": "color", "field": "climate"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "table",
+        "transform": [
+          {"type": "filter", "expr": "datum.depth > 0"}
+        ]
+      },
+      "encode": {
+        "enter": {
+          "fontSize": {"value": 12},
+          "fill": {"value": "white"},
+          "fontWeight": {"value": "bold"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"}
+        },
+        "update": {
+          "x": {"signal": "(datum.x0 + datum.x1) / 2"},
+          "y": {"signal": "(datum.y0 + datum.y1) / 2"},
+          "text": {"field": "climate"}
+        }
+      }
+    }
+  ]
+}

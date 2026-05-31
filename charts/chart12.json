@@ -1,0 +1,147 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 420,
+  "background": "white",
+  "title": {
+    "text": "Monthly Temperature Change in Six Australian Cities in 2020",
+    "subtitle": "Line colour represents climate type",
+    "fontSize": 18,
+    "subtitleFontSize": 12,
+    "anchor": "start"
+  },
+  "data": {
+    "values": [
+      {"month": "Jan", "city": "Sydney", "climate": "Temperate", "temperature": 23.4},
+      {"month": "Feb", "city": "Sydney", "climate": "Temperate", "temperature": 23.5},
+      {"month": "Mar", "city": "Sydney", "climate": "Temperate", "temperature": 22.1},
+      {"month": "Apr", "city": "Sydney", "climate": "Temperate", "temperature": 19.1},
+      {"month": "May", "city": "Sydney", "climate": "Temperate", "temperature": 16.0},
+      {"month": "Jun", "city": "Sydney", "climate": "Temperate", "temperature": 13.7},
+      {"month": "Jul", "city": "Sydney", "climate": "Temperate", "temperature": 12.8},
+      {"month": "Aug", "city": "Sydney", "climate": "Temperate", "temperature": 14.0},
+      {"month": "Sep", "city": "Sydney", "climate": "Temperate", "temperature": 16.5},
+      {"month": "Oct", "city": "Sydney", "climate": "Temperate", "temperature": 18.6},
+      {"month": "Nov", "city": "Sydney", "climate": "Temperate", "temperature": 20.7},
+      {"month": "Dec", "city": "Sydney", "climate": "Temperate", "temperature": 22.5},
+
+      {"month": "Jan", "city": "Melbourne", "climate": "Temperate", "temperature": 21.0},
+      {"month": "Feb", "city": "Melbourne", "climate": "Temperate", "temperature": 21.3},
+      {"month": "Mar", "city": "Melbourne", "climate": "Temperate", "temperature": 18.9},
+      {"month": "Apr", "city": "Melbourne", "climate": "Temperate", "temperature": 15.3},
+      {"month": "May", "city": "Melbourne", "climate": "Temperate", "temperature": 12.0},
+      {"month": "Jun", "city": "Melbourne", "climate": "Temperate", "temperature": 9.8},
+      {"month": "Jul", "city": "Melbourne", "climate": "Temperate", "temperature": 9.4},
+      {"month": "Aug", "city": "Melbourne", "climate": "Temperate", "temperature": 10.4},
+      {"month": "Sep", "city": "Melbourne", "climate": "Temperate", "temperature": 12.6},
+      {"month": "Oct", "city": "Melbourne", "climate": "Temperate", "temperature": 14.8},
+      {"month": "Nov", "city": "Melbourne", "climate": "Temperate", "temperature": 17.4},
+      {"month": "Dec", "city": "Melbourne", "climate": "Temperate", "temperature": 19.5},
+
+      {"month": "Jan", "city": "Brisbane", "climate": "Subtropical", "temperature": 25.7},
+      {"month": "Feb", "city": "Brisbane", "climate": "Subtropical", "temperature": 25.5},
+      {"month": "Mar", "city": "Brisbane", "climate": "Subtropical", "temperature": 24.3},
+      {"month": "Apr", "city": "Brisbane", "climate": "Subtropical", "temperature": 21.9},
+      {"month": "May", "city": "Brisbane", "climate": "Subtropical", "temperature": 18.9},
+      {"month": "Jun", "city": "Brisbane", "climate": "Subtropical", "temperature": 16.5},
+      {"month": "Jul", "city": "Brisbane", "climate": "Subtropical", "temperature": 15.8},
+      {"month": "Aug", "city": "Brisbane", "climate": "Subtropical", "temperature": 17.4},
+      {"month": "Sep", "city": "Brisbane", "climate": "Subtropical", "temperature": 20.1},
+      {"month": "Oct", "city": "Brisbane", "climate": "Subtropical", "temperature": 22.3},
+      {"month": "Nov", "city": "Brisbane", "climate": "Subtropical", "temperature": 24.0},
+      {"month": "Dec", "city": "Brisbane", "climate": "Subtropical", "temperature": 25.2},
+
+      {"month": "Jan", "city": "Perth", "climate": "Mediterranean", "temperature": 24.9},
+      {"month": "Feb", "city": "Perth", "climate": "Mediterranean", "temperature": 25.1},
+      {"month": "Mar", "city": "Perth", "climate": "Mediterranean", "temperature": 23.1},
+      {"month": "Apr", "city": "Perth", "climate": "Mediterranean", "temperature": 19.7},
+      {"month": "May", "city": "Perth", "climate": "Mediterranean", "temperature": 16.5},
+      {"month": "Jun", "city": "Perth", "climate": "Mediterranean", "temperature": 14.0},
+      {"month": "Jul", "city": "Perth", "climate": "Mediterranean", "temperature": 13.2},
+      {"month": "Aug", "city": "Perth", "climate": "Mediterranean", "temperature": 13.8},
+      {"month": "Sep", "city": "Perth", "climate": "Mediterranean", "temperature": 15.5},
+      {"month": "Oct", "city": "Perth", "climate": "Mediterranean", "temperature": 17.9},
+      {"month": "Nov", "city": "Perth", "climate": "Mediterranean", "temperature": 20.9},
+      {"month": "Dec", "city": "Perth", "climate": "Mediterranean", "temperature": 23.4},
+
+      {"month": "Jan", "city": "Adelaide", "climate": "Mediterranean", "temperature": 23.2},
+      {"month": "Feb", "city": "Adelaide", "climate": "Mediterranean", "temperature": 23.1},
+      {"month": "Mar", "city": "Adelaide", "climate": "Mediterranean", "temperature": 20.9},
+      {"month": "Apr", "city": "Adelaide", "climate": "Mediterranean", "temperature": 17.3},
+      {"month": "May", "city": "Adelaide", "climate": "Mediterranean", "temperature": 13.9},
+      {"month": "Jun", "city": "Adelaide", "climate": "Mediterranean", "temperature": 11.4},
+      {"month": "Jul", "city": "Adelaide", "climate": "Mediterranean", "temperature": 10.8},
+      {"month": "Aug", "city": "Adelaide", "climate": "Mediterranean", "temperature": 11.8},
+      {"month": "Sep", "city": "Adelaide", "climate": "Mediterranean", "temperature": 14.2},
+      {"month": "Oct", "city": "Adelaide", "climate": "Mediterranean", "temperature": 16.8},
+      {"month": "Nov", "city": "Adelaide", "climate": "Mediterranean", "temperature": 19.5},
+      {"month": "Dec", "city": "Adelaide", "climate": "Mediterranean", "temperature": 21.8},
+
+      {"month": "Jan", "city": "Darwin", "climate": "Tropical", "temperature": 28.3},
+      {"month": "Feb", "city": "Darwin", "climate": "Tropical", "temperature": 28.1},
+      {"month": "Mar", "city": "Darwin", "climate": "Tropical", "temperature": 28.0},
+      {"month": "Apr", "city": "Darwin", "climate": "Tropical", "temperature": 28.4},
+      {"month": "May", "city": "Darwin", "climate": "Tropical", "temperature": 27.6},
+      {"month": "Jun", "city": "Darwin", "climate": "Tropical", "temperature": 25.8},
+      {"month": "Jul", "city": "Darwin", "climate": "Tropical", "temperature": 25.4},
+      {"month": "Aug", "city": "Darwin", "climate": "Tropical", "temperature": 26.7},
+      {"month": "Sep", "city": "Darwin", "climate": "Tropical", "temperature": 28.2},
+      {"month": "Oct", "city": "Darwin", "climate": "Tropical", "temperature": 29.4},
+      {"month": "Nov", "city": "Darwin", "climate": "Tropical", "temperature": 29.1},
+      {"month": "Dec", "city": "Darwin", "climate": "Tropical", "temperature": 28.7}
+    ]
+  },
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 2.5
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ],
+      "title": "Month"
+    },
+    "y": {
+      "field": "temperature",
+      "type": "quantitative",
+      "title": "Average Temperature (°C)",
+      "scale": {
+        "domain": [5, 32]
+      }
+    },
+    "color": {
+      "field": "climate",
+      "type": "nominal",
+      "title": "Climate Type",
+      "scale": {
+        "domain": [
+          "Tropical",
+          "Subtropical",
+          "Temperate",
+          "Mediterranean"
+        ],
+        "range": [
+          "#2fb47c",
+          "#f2b84b",
+          "#4c78a8",
+          "#e9783f"
+        ]
+      }
+    },
+    "detail": {
+      "field": "city",
+      "type": "nominal"
+    },
+    "tooltip": [
+      {"field": "city", "type": "nominal", "title": "City"},
+      {"field": "climate", "type": "nominal", "title": "Climate Type"},
+      {"field": "month", "type": "ordinal", "title": "Month"},
+      {"field": "temperature", "type": "quantitative", "title": "Temperature (°C)"}
+    ]
+  }
+}

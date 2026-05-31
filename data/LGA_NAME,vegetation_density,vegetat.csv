@@ -1,0 +1,49 @@
+LGA_NAME,vegetation_density,vegetation_level
+Sydney (C),22,Low
+Melbourne (C),18,Low
+Brisbane (C),56,Medium
+Gold Coast (C),62,Medium
+Cairns (R),88,Very High
+Darwin (C),82,Very High
+Perth (C),35,Medium
+Adelaide (C),28,Low
+Hobart (C),76,High
+Alice Springs (T),5,Very Low
+Townsville (C),71,High
+Launceston (C),74,High
+Rockhampton (R),66,High
+Sunshine Coast (R),63,Medium
+Broome (S),67,High
+Kalgoorlie-Boulder (C),9,Very Low
+Greater Geelong (C),39,Medium
+Ballarat (C),51,Medium
+Greater Bendigo (C),48,Medium
+Toowoomba (R),57,Medium
+Mackay (R),73,High
+Bundaberg (R),69,High
+Gladstone (R),61,Medium
+Mount Isa (C),11,Very Low
+Katherine (T),79,Very High
+Albany (C),54,Medium
+Greater Geraldton (C),43,Medium
+Bunbury (C),47,Medium
+Port Hedland (T),14,Low
+Whyalla (C),16,Low
+Wagga Wagga (C),42,Medium
+Dubbo Regional (R),37,Medium
+Tamworth Regional (R),46,Medium
+Orange (C),52,Medium
+Newcastle (C),41,Medium
+Wollongong (C),44,Medium
+Albury (C),49,Medium
+Devonport (C),72,High
+Burnie (C),75,High
+Mount Gambier (C),58,Medium
+Mildura (RC),24,Low
+Greater Shepparton (C),33,Medium
+Coffs Harbour (C),68,High
+Port Macquarie-Hastings (A),66,High
+Lismore (C),81,Very High
+East Gippsland (S),59,Medium
+Esperance (S),53,Medium
+Wyndham-East Kimberley (S),84,Very High
